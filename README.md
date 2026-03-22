@@ -40,16 +40,16 @@ npm run install:all
 ```
 
 ### 3. Environment Configuration
-Create a `.env` file in the `server/` directory and add your OpenRouter API key:
+Create a `.env` file in the `server/` directory and add your Google Gemini API key:
 
 ```env
 PORT=5000
-OPENROUTER_API_KEY=your_openrouter_api_key_here
+GOOGLE_API_KEY=your_google_api_key_here
 NODE_ENV=development
 ```
 
 > [!TIP]
-> You can get an API key from [OpenRouter.ai](https://openrouter.ai/).
+> You can get an API key from [Google AI Studio](https://aistudio.google.com/).
 
 ### 4. Running the Project
 To start both the frontend and backend concurrently, run:

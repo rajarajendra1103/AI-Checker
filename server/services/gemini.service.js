@@ -22,8 +22,9 @@ export async function analyzeWithGemini(content, type = "news") {
     `;
 
     try {
-        const apiKey = process.env.OPENROUTER_API_KEY;
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+        const apiKey = process.env.GOOGLE_API_KEY;
+        const model = "gemini-3.1-flash-lite-preview";
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

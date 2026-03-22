@@ -73,7 +73,7 @@ app.get("/", (req, res) => {
 
 app.listen(PORT, async () => {
     console.log(`AI Checker Server active on port ${PORT}`);
-    if (process.env.OPENROUTER_API_KEY) {
-        console.log("Gemini 1.5 Flash Intelligence Layer: ONLINE");
+    if (process.env.GOOGLE_API_KEY) {
+        console.log("Gemini 3.1 Flash-Lite Intelligence Layer: ONLINE");
     }
 });
