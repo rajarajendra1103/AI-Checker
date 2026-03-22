@@ -7,7 +7,7 @@ A high-end, production-ready intelligence platform designed to detect misinforma
 ## 🚀 Key Features
 
 - **📡 Real-time Intelligence Feed**: A dual-intake engine monitoring global news via RSS streams and deep web scraping.
-- **🧠 AI Reality Analysis**: Deep-neural verification engine powered by OpenRouter (GPT-4o) for factual claim extraction and reasoning.
+- **🧠 AI Reality Analysis**: Deep-neural verification engine powered by **Google Gemini 3.1 Flash-Lite** for factual claim extraction and reasoning.
 - **🔍 Advanced Fact-Checking Tools**: Verify any URL (News, YouTube, social media) or raw text with semantic search capabilities.
 - **💎 Premium "Ice Glass" UI**: A high-end, responsive dashboard with layered transparency and interactive components.
 - **📊 Factual Scoring**: Real-time credibility scoring with visual gauges and detailed analysis reports.
@@ -20,7 +20,7 @@ A high-end, production-ready intelligence platform designed to detect misinforma
 | :--- | :--- |
 | **Frontend** | React, Vite, Tailwind CSS, Framer Motion, Lucide React, Recharts |
 | **Backend** | Node.js, Express, Puppeteer, Cheerio, RSS-Parser |
-| **Intelligence** | OpenRouter API (GPT-4o-mini / GPT-4o) |
+| **Intelligence** | Google Gemini API (Gemini 3.1 Flash-Lite) |
 | **Utilities** | Axios, Concurrently, Nodemon, Dotenv |
 
 ---
@@ -74,7 +74,7 @@ npm run dev
 │   │   └── index.css       # Theme & Glassmorphism config
 ├── server/                 # Backend (Node + Express)
 │   ├── services/
-│   │   ├── openrouter.service.js   # AI Deep Analysis Layer
+│   │   ├── gemini.service.js       # AI Deep Analysis Layer
 │   │   ├── rss.service.js          # News Intake Engine
 │   │   └── scraper.service.js      # Deep Web Scraper
 │   └── index.js            # API Gateway & Endpoints
