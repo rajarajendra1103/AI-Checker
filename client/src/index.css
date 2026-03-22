@@ -1,0 +1,64 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: #f8fafc; /* Clean Bright Pearl */
+    background-image: 
+        radial-gradient(at 0% 0%, hsla(210, 100%, 95%, 0.8) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(190, 80%, 95%, 0.8) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, hsla(230, 100%, 97%, 0.7) 0px, transparent 50%);
+    @apply text-slate-800 min-h-screen selection:bg-indigo-500/10 selection:text-indigo-900;
+  }
+}
+
+@layer components {
+  /* Premium Light Glassmorphism */
+  .glass {
+    background: rgba(234, 231, 231, 0.58);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(243, 236, 236, 0.5);
+    @apply shadow-[0_8px_32px_0_rgba(31,38,135,0.07)];
+  }
+
+  .glass-dark {
+    background: rgba(255, 255, 255, 0.6); /* Shifted to Bright Glass */
+    backdrop-filter: blur(40px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 40px -15px rgba(250, 243, 243, 0.1);
+    @apply rounded-[32px];
+  }
+
+  .title-gradient {
+    @apply bg-gradient-to-br from-indigo-500 via-indigo-700 to-indigo-900 bg-clip-text text-transparent;
+  }
+}
+
+/* Custom Scrollbar - Light Mode */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
