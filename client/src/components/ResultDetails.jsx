@@ -196,14 +196,31 @@ const ResultDetails = ({ data }) => {
                     </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {ensureArray(analysis.claimExtraction).map((claim, idx) => (
-                        <div key={idx} className="flex gap-6 items-start p-8 bg-white border border-indigo-50 rounded-[40px] hover:border-indigo-200 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-500 group/claim">
-                            <div className="w-12 h-12 shrink-0 flex items-center justify-center font-black text-sm bg-indigo-600 rounded-2xl text-white shadow-xl shadow-indigo-600/20 group-hover/claim:scale-110 transition-transform">
-                                {idx + 1}
+                    {ensureArray(analysis.claimExtraction).map((item, idx) => {
+                        const claimText = typeof item === 'object' ? (item.claim || item.text || JSON.stringify(item)) : item;
+                        const status = typeof item === 'object' ? item.status : null;
+                        
+                        return (
+                            <div key={idx} className="flex gap-6 items-start p-8 bg-white border border-indigo-50 rounded-[40px] hover:border-indigo-200 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all duration-500 group/claim">
+                                <div className="w-12 h-12 shrink-0 flex items-center justify-center font-black text-sm bg-indigo-600 rounded-2xl text-white shadow-xl shadow-indigo-600/20 group-hover/claim:scale-110 transition-transform">
+                                    {idx + 1}
+                                </div>
+                                <div className="flex-1 space-y-3">
+                                    <p className="text-lg text-slate-900 font-black leading-relaxed italic tracking-tight">"{claimText}"</p>
+                                    {status && (
+                                        <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border transition-colors ${
+                                            status.toLowerCase().includes('true') ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : 
+                                            status.toLowerCase().includes('false') ? 'bg-rose-50 text-rose-600 border-rose-100' : 
+                                            'bg-amber-50 text-amber-600 border-amber-100'
+                                        }`}>
+                                            <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: 'currentColor' }} />
+                                            {status}
+                                        </div>
+                                    )}
+                                </div>
                             </div>
-                            <p className="text-lg text-slate-900 font-black leading-relaxed italic tracking-tight">"{claim}"</p>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
             
