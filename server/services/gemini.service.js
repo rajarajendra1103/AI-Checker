@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-export async function analyzeWithOpenRouter(content, type = "news") {
+export async function analyzeWithGemini(content, type = "news") {
     const systemInstructions = `
     You are an AI-powered News & Social Media Fact-Checking System.
     Strict Operational Protocol:

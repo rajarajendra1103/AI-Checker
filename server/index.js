@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { fetchTrendingNews, searchNews } from "./services/rss.service.js";
 import { scrapeURL } from "./services/scraper.service.js";
-import { analyzeWithOpenRouter } from "./services/openrouter.service.js";
+import { analyzeWithGemini } from "./services/gemini.service.js";
 
 dotenv.config();
 
@@ -52,7 +52,7 @@ app.post("/api/analyze", async (req, res) => {
             return res.status(400).json({ error: "Insufficient content to analyze." });
         }
 
-        const analysis = await analyzeWithOpenRouter(contentToAnalyze, type || "news");
+        const analysis = await analyzeWithGemini(contentToAnalyze, type || "news");
         res.json({
             analysis,
             metadata: {
@@ -74,6 +74,6 @@ app.get("/", (req, res) => {
 app.listen(PORT, async () => {
     console.log(`AI Checker Server active on port ${PORT}`);
     if (process.env.OPENROUTER_API_KEY) {
-        console.log("GPT-5.2 Intelligence Layer: ONLINE");
+        console.log("Gemini 1.5 Flash Intelligence Layer: ONLINE");
     }
 });
